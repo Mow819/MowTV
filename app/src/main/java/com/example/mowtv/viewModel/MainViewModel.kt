@@ -25,7 +25,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     suspend fun getAllReports() {
         val reportsDao = MowTVDB.getDatabase(getApplication())?.reportsDao()
         val list = reportsDao?.getAllReportsData()
-        Log.d("SSSSSSS",list.toString())
         allUsers.postValue(list!!)
     }
 
