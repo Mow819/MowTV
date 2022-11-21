@@ -31,7 +31,7 @@ class StartActivity : AppCompatActivity() {
     private fun handleAction(action: Action) {
         when (action.getValue()) {
             Action.DATA_IS_LOADING -> {}
-            Action.DATA_LOADED -> {
+            Action.DATA_LOADED -> { //если загрузка прошла успешно - загруженные данные передаются в main
                 var intent= Intent(this,MainActivity::class.java)
                 intent.putExtra("VIDEOS", startViewModel!!.videos)
                 startActivity(intent)
