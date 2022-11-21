@@ -6,7 +6,7 @@ import androidx.room.TypeConverter
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DateConvert {
+class DateConvert { //конверт в дату и из даты
     @RequiresApi(Build.VERSION_CODES.O)
     @TypeConverter
     fun fromTimestamp(value: String?): Date? {
