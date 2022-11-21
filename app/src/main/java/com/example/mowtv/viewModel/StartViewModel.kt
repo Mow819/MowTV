@@ -44,7 +44,7 @@ class StartViewModel(application: Application) : AndroidViewModel(application) {
         logo.set(Uri.parse("android.resource://your.package.here/drawable/white_logo2.png"))
         dataIsLoading.set(false)
 
-        Handler().postDelayed({ getVideos() }, 3000)
+        Handler().postDelayed({ getVideos() }, 3000) // имитация длительной загрузки данных
     }
 
     private fun getVideos() {
