@@ -20,16 +20,20 @@ import com.example.mowtv.viewModel.MainViewModel
 import kotlinx.coroutines.*
 
 class ReportFragment : Fragment() {
+    
     private lateinit var viewModel: MainViewModel
     lateinit var binding: FragmentReportBinding
     var recyclerView: RecyclerView? = null
+    private lateinit var adapter: RecyclerViewAdapter
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = activity?.run {
             ViewModelProvider(this)[MainViewModel::class.java]
         } ?: throw Exception("Invalid Activity")
     }
-    private lateinit var adapter: RecyclerViewAdapter
+    
+    
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         binding = FragmentReportBinding.inflate(inflater, container, false)
