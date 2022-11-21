@@ -14,7 +14,7 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import kotlin.text.Charsets.UTF_8
 
-class UtilsVideo(private var context: Context) {
+class UtilsVideo(private var context: Context) { //перевод из json
     fun parseJsonDataFromAsset():Videos {
 
         val jsonFileString = getJsonDataFromAsset()
