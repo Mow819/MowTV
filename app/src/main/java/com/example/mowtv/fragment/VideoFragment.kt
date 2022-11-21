@@ -90,7 +90,7 @@ class VideoFragment : Fragment(), SurfaceHolder.Callback, MediaPlayer.OnPrepared
         val start_time = Date()
         val id_video = playableVideo
         val video_name = mainViewModel.cats[playableVideo]
-        val report = Report(id = null, id_video, video_name, start_time) //id is auto generate
+        val report = Report(id = null, id_video, video_name, start_time) //id генерируется автоматически поэтому null
         mainViewModel.insertReportInfo(report)
     }
 
@@ -141,7 +141,7 @@ class VideoFragment : Fragment(), SurfaceHolder.Callback, MediaPlayer.OnPrepared
         try {
             if (mediaPlayer == null) mediaPlayer = MediaPlayer()
 
-            afd = requireContext().assets.openFd("Videos/${mainViewModel.cats[playableVideo]}")
+            afd = requireContext().assets.openFd("Videos/${mainViewModel.cats[playableVideo]}") //название подгружаю из списка полученного из main
             mediaPlayer!!.setOnCompletionListener {
                 mediaPlayer!!.reset()
                 play()
