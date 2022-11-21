@@ -46,13 +46,13 @@ class MainActivity : AppCompatActivity() {
         } else {
             videoFragment = supportFragmentManager.findFragmentByTag(VideoFragment.TAG) as VideoFragment
         }
-        videos = (intent.getSerializableExtra("VIDEOS") as Videos?)!!
+        videos = (intent.getSerializableExtra("VIDEOS") as Videos?)!! //получение списка видео загруженного из start
 
 
         supportActionBar?.hide()
     }
 
-    suspend fun loadNameVideo(){
+    suspend fun loadNameVideo(){ //получение только названий
         GlobalScope.async {
             withContext(Dispatchers.Main) {
                 for(i in 0 until videos.videos.size)
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }.await()
     }
 
-    private fun setupViewPager(viewpager: ViewPager) {
+    private fun setupViewPager(viewpager: ViewPager) { //заполнение viewpager
         var adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(VideoFragment(), "ВИДЕО")
         adapter.addFragment(ReportFragment(), "ИСТОРИЯ")
